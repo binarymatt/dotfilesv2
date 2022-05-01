@@ -53,6 +53,12 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-markdown'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Plug 'jvirtanen/vim-hcl'
+Plug 'hashivim/vim-terraform'
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -83,6 +89,7 @@ Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-json', 'coc-protobuf', 'coc-tsserver']
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
@@ -228,9 +235,10 @@ else
 endif
 
 
-
+" cursor modes
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
+set gcr=n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20
 
 au TermEnter * setlocal scrolloff=0
 au TermLeave * setlocal scrolloff=3
@@ -599,3 +607,16 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+" Telescope
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" gitgutter settings
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
