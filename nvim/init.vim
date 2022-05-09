@@ -137,9 +137,9 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Formatting selected code.
-xmap <leader>fm  <Plug>(coc-format-selected)
-nmap <leader>fm  <Plug>(coc-format-selected)
-nnoremap <leader>fm <Plug>(coc-format-selected)
+"xmap <leader>fm  <Plug>(coc-format-selected)
+"nmap <leader>fm  <Plug>(coc-format-selected)
+"nnoremap <leader>fm <Plug>(coc-format-selected)
 "*****************************************************************************
 "*****************************************************************************
 
@@ -387,6 +387,9 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+" coc commands
+nnoremap <leader>fd :Format<CR>
 
 "" Tabs
 nnoremap <Tab> gt
