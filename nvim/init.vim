@@ -55,7 +55,7 @@ Plug 'tpope/vim-markdown'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-terraform'
@@ -139,6 +139,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Formatting selected code.
 xmap <leader>fm  <Plug>(coc-format-selected)
 nmap <leader>fm  <Plug>(coc-format-selected)
+nnoremap <leader>fm <Plug>(coc-format-selected)
 "*****************************************************************************
 "*****************************************************************************
 
