@@ -687,3 +687,6 @@ function! s:Warn(msg)
   echohl NONE
 endfunction
 nnoremap <silent> <Leader>bd :Bclose<CR>
+
+" nerdtree shortcuts
+nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
