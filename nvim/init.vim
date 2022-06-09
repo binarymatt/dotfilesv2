@@ -35,6 +35,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
+Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -108,6 +109,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> en <Plug>(coc-diagnostic-next)
+nmap <silent> ep <Plug>(coc-diagnostic-previous)
 
 
 " Use K to show documentation in preview window.
@@ -119,6 +122,9 @@ function! s:show_documentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+
+
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
@@ -690,3 +696,5 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 
 " nerdtree shortcuts
 nnoremap <silent> <Leader>nf :NERDTreeFind<CR>
+" syncs nerdtree to current file
+let g:nerdtree_sync_cursorline = 1
