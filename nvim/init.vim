@@ -91,6 +91,10 @@ Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" markdown preview
+Plug 'ellisonleao/glow.nvim'
+
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver']
 function! s:check_back_space() abort
 	let col = col('.') - 1
