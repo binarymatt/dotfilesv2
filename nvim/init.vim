@@ -91,7 +91,7 @@ Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-json', 'coc-protobuf', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver']
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~ '\s'
@@ -442,7 +442,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
 " ale
-let g:ale_linters = {}
+let g:ale_linters = {'go': ['golint']}
+let g:ale_lint_on_save = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -568,8 +569,8 @@ augroup go
 augroup END
 
 " ale
-:call extend(g:ale_linters, {
-    \"go": ['golint', 'go vet'], })
+"":call extend(g:ale_linters, {
+"    \"go": ['golint', 'go vet'], })
 
 
 
