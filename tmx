@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function tmux_create {
+ SESSION_NAME=$1
+ tmux new -s $SESSION_NAME -n neovim 
+}
+
+#new session base name is current directory name
+DIR_NAME=${PWD##*/}
+# DIR_NAME=${DIR_NAME//./_}
+
+echo "checking for tmux session with name '$DIR_NAME'."
+tmux has -t $DIR_NAME 2> /dev/null
+retVal=$?
+if [ $retVal -ne 0 ]
+then
+  echo "Session not found. Create Session '$DIR_NAME'."
+  tmux_create $DIR_NAME
+else
+  echo "attaching to session '$DIR_NAME'"
+  tmux a -t $DIR_NAME
+fi
+
